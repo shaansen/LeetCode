@@ -1,9 +1,3 @@
-class ListNode {
-      int val;
-      ListNode next;
-      ListNode(int x) { val = x; }
-  }
- 
 class Solution {
     
     public ListNode actualAction(ListNode l1, ListNode l2,int pcarry) {

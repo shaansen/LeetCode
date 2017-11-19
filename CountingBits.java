@@ -1,6 +1,5 @@
 import java.util.*;
 
-
 public class CountingBits {
 	
 	public static int[] x;
