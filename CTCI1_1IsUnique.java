@@ -1,5 +1,5 @@
 
-public class CTCT1_1IsUnique {
+public class CTCI1_1IsUnique {
 	
 	public static boolean isUnique(String str) {
 		boolean charSet[] = new boolean[128];
