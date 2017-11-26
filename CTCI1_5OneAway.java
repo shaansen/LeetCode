@@ -1,5 +1,5 @@
 
-public class CTCI1_4OneAway {
+public class CTCI1_5OneAway {
 	
 	public static boolean oneAway(String a1, String b1) {
 		if(a1.length()-b1.length()<2 && a1.length()-b1.length()>-2) {
