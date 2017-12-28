@@ -1,4 +1,3 @@
-
 class ListNode {
 	      int val;
 	      ListNode next;
@@ -8,4 +7,5 @@ class ListNode {
 	    	  this.next = null;
 	    	  this.prev = null;
 	    	  }
+	      
 }
