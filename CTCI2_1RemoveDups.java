@@ -28,7 +28,7 @@ public class CTCI2_1RemoveDups {
 		return head;
 	}
 	
-	public static ListNode removeDuplicatesWithoutExtraSpace(ListNode x) {
+public static ListNode removeDuplicatesWithoutExtraSpace(ListNode x) {
 		
 		System.out.println("Without Extra Space");
 		// To maintain the head 
@@ -65,6 +65,33 @@ public class CTCI2_1RemoveDups {
 		
 		return head;
 	}
+
+	public static ListNode improvedRemoveDuplicatesWithoutExtraSpace(ListNode x) {
+	
+	// To maintain the head 
+	ListNode head = x;
+	
+	if(head==null) {
+		return null;
+	}
+
+	// To maintain counter
+	ListNode current = x;
+	
+	while(current!=null) {
+		ListNode fast = current;
+		while(fast.next!=null) {
+			if(fast.next.val==current.val) {
+				fast.next = fast.next.next;
+			} else {
+				fast = fast.next;
+			}
+		}
+		current = current.next;
+	}
+		
+	return head;
+}
 	
 	public static void printLinkedList(ListNode x) {
   	  ListNode current = x;
@@ -95,7 +122,7 @@ public class CTCI2_1RemoveDups {
 		printLinkedList(y);
 		System.out.println();
 		//printLinkedList(removeDuplicatesWithExtraSpace(y));
-		printLinkedList(removeDuplicatesWithoutExtraSpace(y));
+		printLinkedList(improvedRemoveDuplicatesWithoutExtraSpace(y));
 		
 	}
 }
