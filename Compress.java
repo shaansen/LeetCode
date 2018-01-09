@@ -32,7 +32,7 @@ public class Compress {
                 chars[index++] = countArr[j];
             }
         }
-        System.out.println(Arrays.toString(chars));
+        //System.out.println(Arrays.toString(chars));
         return index;
     }
 	
