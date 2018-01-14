@@ -45,8 +45,6 @@ public class BinarySearchTree {
 			}
 		}
 		
-		
-		
 		if(parent.val < key) {
 			System.out.println("Finally placing it on the left of "+parent.val);
 			parent.right = new TreeNode(key);

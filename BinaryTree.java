@@ -2,7 +2,7 @@ import java.util.*;
 
 public class BinaryTree {
 	
-	static TreeNode root;
+	TreeNode root;
 	
 	public static void preOrder(TreeNode root) {
 		if(root!=null) {
@@ -75,7 +75,7 @@ public class BinaryTree {
 		System.out.println();
 		inOrder(b.root);
 		System.out.println();*/
-		System.out.print(levelOrder(root));
+		//System.out.print(levelOrder(root));
 	}
 
 }
