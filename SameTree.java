@@ -32,13 +32,28 @@ public class SameTree {
 		return 1+Math.max(heightOfTree(root.left),heightOfTree(root.right));
 	}
 	
-	public static int rootToLeaveSum(TreeNode root) {
+	public static boolean rootToLeaveSum(TreeNode root, int sum) {
+		
 		if(root==null) {
-			return 0;
+			return false;
 		}
-		return root.val+Math.max(rootToLeaveSum(root.left),rootToLeaveSum(root.right));
+		
+		int subsum = sum - root.val;
+		if(root.left==null && root.right==null) {
+			System.out.print(root.val+" -> ");
+			return subsum==0;
+		}
+		if(rootToLeaveSum(root.left, subsum)) {
+			System.out.print(root.val+" -> ");
+			return true;
+		} 
+		if(rootToLeaveSum(root.right, subsum)) {
+			System.out.print(root.val+" -> ");
+			return true;
+		} 
+		return false;
 	}
-
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
@@ -59,9 +74,9 @@ public class SameTree {
 		b2.root.right.left = new TreeNode(6);
 		b2.root.right.right = new TreeNode(11);
 		
-		System.out.println(sizeOfTree(b1.root));
-		System.out.println(heightOfTree(b1.root));
-		System.out.println(rootToLeaveSum(b2.root));
+//		System.out.println(sizeOfTree(b1.root));
+//		System.out.println(heightOfTree(b1.root));
+		System.out.println(rootToLeaveSum(b1.root,10));
 		
 		
 	}
