@@ -28,8 +28,7 @@ public class HouseRobber {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int[] a= {1,100,100,2};
-		memo = new int[a.length];
-		Arrays.fill(memo, -1);
+		System.out.println("---------------------------------------");
 		System.out.println(rob(a));
 	}
 
