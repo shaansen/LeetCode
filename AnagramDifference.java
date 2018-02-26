@@ -27,7 +27,7 @@ public class AnagramDifference {
 
 	public static void main(String[] args) {
 		
-		System.out.println(removeAnagram("abcdef", "abcdef"));
+		System.out.println(removeAnagram("abb", "bbc"));
 
 	}
 
