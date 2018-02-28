@@ -10,7 +10,7 @@ public class ShortestCompletingWord {
                 res[idx]++;
             }
         }
-        System.out.println(Arrays.toString(res));
+//        System.out.println(Arrays.toString(res));
         return res;
     }
 	
@@ -22,7 +22,7 @@ public class ShortestCompletingWord {
             }
 			
 		}
-        System.out.println("Sum: "+sum);
+//        System.out.println("Sum: "+sum);
 		return sum;
 	}
 	
@@ -34,8 +34,8 @@ public class ShortestCompletingWord {
 		
         int[] licenseArray = getCharArray(licensePlate.toLowerCase());
         for (int i = 0; i < words.length; i++) {
-            System.out.println("--------------------------------------------------");
-            System.out.println(words[i]);
+//            System.out.println("--------------------------------------------------");
+//            System.out.println(words[i]);
 			int[] wordArray = getCharArray(words[i]);
 			int diff = getDiff(licenseArray, wordArray);
 			if(diff < min || (diff == min && words[i].length() < minLength)) {
