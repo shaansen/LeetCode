@@ -34,13 +34,8 @@ public class FourSumII {
 			}
 		}
 		int count = 0;
-		System.out.println(map1);
-		System.out.println(map2);
-		
 		for(Entry<Integer, Integer> entry1: map1.entrySet()) {
 			if(map2.keySet().contains(entry1.getKey()*-1)) {
-				int x = -1*entry1.getValue();
-				System.out.println(x);
 				count+= (entry1.getValue())*(map2.get(-1*entry1.getKey()));
 			}
 		}
