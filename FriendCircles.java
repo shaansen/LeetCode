@@ -1,73 +1,42 @@
+import java.util.Arrays;
 
 public class FriendCircles {
 	
-	static public boolean isSafe(int[][] M,int i,int j,boolean[][] visited) {
-		return ((i>=0) && (i<M.length)) && ((j>=0) && (j<M[0].length)) && M[i][j]==1 && !visited[i][j];
-	}
-	
-	static public void DFS(int[][] M,int i,int j,boolean[][] visited) {
-		
-		visited[i][j] = true;
-		
-		int i1 = i-1;
-		int i2 = i+1;
-		int j1 = j-1;
-		int j2 = j+1;
-		
-		if(isSafe(M, i, j1, visited)) {
-			DFS(M, i, j1, visited);
+	public static boolean isTopLeft(int[][] M, int i, int j) {
+		if(i == 0) {
+			if(j == 0) {
+				return true;
+			}
+			return M[i][j-1]!=1;
 		}
-		if(isSafe(M, i, j2, visited)) {
-			DFS(M, i, j2, visited);
+		if(j == 0) {
+			if(i == 0) {
+				return true;
+			}
+			return M[i-1][j]!=1;
 		}
-		if(isSafe(M, i2, j, visited)) {
-			DFS(M, i2, j, visited);
-		}
-		if(isSafe(M, i2, j, visited)) {
-			DFS(M, i2, j, visited);
-		}
-		
-		
+		return M[i-1][j]!=1 && M[i][j-1]!=1;
 	}
 	
 	static public int findCircleNum(int[][] M) {
-        
-		int rows = M.length;
-		int cols = M[0].length;
-		
-		System.out.println(rows+" "+cols);
-		int result = 0;
-		
-		boolean[][] visited = new boolean[rows][cols];
-//		for (int i = 0; i < rows; i++) {
-//			for (int j = 0; j < cols; j++) {
-//				visited[i][j] = false;
-//			}
-//		}
-		
-		for (int i = 0; i < rows; i++) {
-			for (int j = 0; j < cols; j++) {
-				if(M[i][j]==1 && !visited[i][j]) {
-					DFS(M,i,j,visited);
-					++result;
+		int count = 0;
+        for (int i = 0; i < M.length; i++) {
+        	System.out.println(Arrays.toString(M[i]));
+			for (int j = 0; j < M[0].length; j++) {
+				if(M[i][j] == 1 && isTopLeft(M, i, j)) {
+					count++;
 				}
 			}
 		}
-		
-		return result;
+        return count;
     }
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int M[][]=  new int[][] {{1, 1, 0, 0, 0},
-            {0, 1, 0, 0, 1},
-            {1, 0, 0, 1, 1},
-            {0, 0, 0, 0, 0},
-            {1, 0, 1, 0, 1}
-           };
-           
-        int M2[][] = new int[][] {{1,1,1},{1,1,1},{1,1,1}};
-        System.out.println(findCircleNum(M2));
+		int M1[][] = new int[][] {{1, 1, 0},{1, 1, 0},{0, 0, 1}};
+        int M2[][] = new int[][] {{1,1,0},{1,1,1},{0,1,1}};
+        int M3[][] = new int[][] {{1,0,0,1},{0,1,1,0},{0,1,1,1},{1,0,1,1}};
+        System.out.println(findCircleNum(M3));
 	}
 
 }
