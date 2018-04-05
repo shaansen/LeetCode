@@ -5,6 +5,9 @@ public class RelativeRanks {
 	
 	static public String[] findRelativeRanks(int[] nums) {
 		
+		if(nums.length == 0)
+			return new String[0];
+		
 		HashMap<Integer, String> map = new HashMap<Integer, String>();
         int[] copy = nums.clone();
         Arrays.sort(nums);
