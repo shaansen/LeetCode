@@ -7,8 +7,6 @@ public class NumberofBoomerangs {
 		return (a[0]-b[0])*(a[0]-b[0]) + (a[1]-b[1])*(a[1]-b[1]);
 	}
 	
-	
-	
 	public static int numberOfBoomerangs(int[][] points) {
 		
 		int result = 0;
