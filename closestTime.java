@@ -73,7 +73,7 @@ public class closestTime{
 			for (int j = 0; j < 60; j++) {
 				String hr  = i<10 ? "0"+i : i+"";
 				String min = j<10 ? "0"+j : j+"";
-				System.out.println(findNext(hr+":"+min));
+				System.out.println((hr+":"+min));
 			}
 		}
 	}

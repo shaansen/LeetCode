@@ -25,6 +25,29 @@ public class NextClosestTime {
 		return getTimeDifference(getHM(a), getHM(b));
 	}
 	
+//	public static List getAllCombinations(String s) {
+//		int origHr  = Integer.parseInt(s.substring(0,2));
+//		int origMin = Integer.parseInt(s.substring(2,4));
+//		int[] a = {Integer.parseInt(s.substring(0,1)),Integer.parseInt(s.substring(1,2)),Integer.parseInt(s.substring(2,3)),Integer.parseInt(s.substring(3,4))};
+//		List<String> result = new LinkedList<String>();
+//		for (int i = 0; i < 4; i++) {
+//			for (int j = 0; j < 4; j++) {
+//				for (int k = 0; k < 4; k++) {
+//					for (int l = 0; l < 4; l++) {
+//						int h = a[i]*10 + a[j];
+//						int m = a[k]*10 + a[l];
+//						if(h<24 && m<60) {
+//							String hr  = h < 10 ? "0"+h : h+"";
+//							String min = m < 10 ? "0"+m : m+"";
+//							result.add(hr+min);
+//						}
+//					}
+//				}
+//			}
+//		}
+//		return result;
+//	}
+	
 	public static List getAllCombinations(String s) {
 		int origHr  = Integer.parseInt(s.substring(0,2));
 		int origMin = Integer.parseInt(s.substring(2,4));
@@ -34,12 +57,14 @@ public class NextClosestTime {
 			for (int j = 0; j < 4; j++) {
 				for (int k = 0; k < 4; k++) {
 					for (int l = 0; l < 4; l++) {
-						int h = a[i]*10 + a[j];
-						int m = a[k]*10 + a[l];
-						if(h<24 && m<60) {
-							String hr  = h < 10 ? "0"+h : h+"";
-							String min = m < 10 ? "0"+m : m+"";
-							result.add(hr+min);
+						if(i!=j && i!=k && i!=l && j!=k && j!=l && k!=l) {
+							int h = a[i]*10 + a[j];
+							int m = a[k]*10 + a[l];
+							if(h<24 && m<60) {
+								String hr  = h < 10 ? "0"+h : h+"";
+								String min = m < 10 ? "0"+m : m+"";
+								result.add(hr+min);
+							}
 						}
 					}
 				}
