@@ -18,14 +18,7 @@ public class SumofLeftLeaves {
 	}
 	
 	public static int sumOfLeftLeaves(TreeNode root) {
-        int sum = 0;
-        if(root.left==null && root.right==null) {
-        	sum = handler(root, 1);
-        } else {
-        	sum = handler(root, 0);
-        }
-        
-        return sum;
+        return handler(root, 1);
     }
 
 	public static void main(String[] args) {
