@@ -16,7 +16,9 @@ public class LeftViewOfATree {
 		if(root == null) {
 			return;
 		}
-		
+		System.out.println(root.val);
+		System.out.println("Level : "+level);
+		System.out.println("Level for decrementing : "+levelForDecrementing);
 		if(levelForDecrementing == 1 && levelCompleted<level) {
 			list.add(root.val);
 			levelCompleted++;
