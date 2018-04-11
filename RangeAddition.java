@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class RangeAddition {
 	
 	public static int[] getModifiedArray(int length, int[][] updates) {
@@ -21,10 +19,5 @@ public class RangeAddition {
         return result;
        
     }
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
 
 }
