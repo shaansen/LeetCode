@@ -2,46 +2,28 @@ import java.util.Arrays;
 
 public class LargestTriangleArea {
 	
-	public static double area(double[] x, double[] y)
-    {
-		double side1=0, side2=0,side3=0;
-		double side1x  = x[0];
-        double side1y  = y[0];
-        double side2x  = x[1];
-        double side2y  = y[1];
-        double side3x  = x[2];
-        double side3y  = y[2];
-
-        //find length of sides of triangle
-        side1 = Math.pow(Math.pow((side2x - side1x), 2) + Math.pow((side2y - side1y), 2),0.5);
-        side2 = Math.pow(Math.pow((side3x - side2x), 2) + Math.pow((side3y - side2y), 2),0.5);
-        side3 = Math.pow(Math.pow((side1x - side3x), 2) + Math.pow((side1y - side3y), 2),0.5);
-        
-        double s = (side1 + side2 + side3) / 2;
-        double z = s * (s - side1) * (s - side2) * (s-side3);
-        System.out.println(z);
-        double area = Math.sqrt(z);
-        
-        return area;
-    }
+	public static double area(double s, double a, double b, double c) {
+		return Math.sqrt(s*(s-a)*(s-b)*(s-c));
+	}
 	
-	public static double largestTriangleArea(int[][] points) {
-		Double max = Double.MIN_VALUE;
-		double[] X = new double[3];
-		double[] Y = new double[3];
-        for (int i = 0; i < points.length; i++) {
-			for (int j = i+1; j < points.length; j++) {
-				for (int k = j+1; k < points.length; k++) {
-					X[0] = points[i][0];
-					X[1] = points[j][0];
-					X[2] = points[k][0];
+	public static double side(int x1, int y1, int x2, int y2) {
+		return Math.sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
+	}
+	
+	public static double largestTriangleArea(int[][] a) {
+        Double max = Double.MIN_VALUE;
+        for (int i = 0; i < a.length; i++) {
+			for (int j = i+1; j < a.length; j++) {
+				for (int k = j+1; k < a.length; k++) {
+					double A = side(a[i][0],a[i][1],a[j][0],a[j][1]);
+					double B = side(a[i][0],a[i][1],a[k][0],a[k][1]);
+					double C = side(a[j][0],a[j][1],a[k][0],a[k][1]);
+					double S = (A+B+C)/2;
+					double AREA = area(S, A, B, C);
+					if(!Double.isNaN(AREA)) {
+						max = Math.max(max, AREA);
+					}
 					
-					Y[0] = points[i][1];
-					Y[1] = points[j][1];
-					Y[2] = points[k][1];
-					
-					double area = 0.5*area(X,Y);
-					max = Double.max(max, area);
 				}
 			}
 		}
@@ -49,7 +31,8 @@ public class LargestTriangleArea {
     }
 
 	public static void main(String[] args) {
-		int[][] points = {{-35,19},{40,19},{27,-20},{35,-3},{44,20},{22,-21},{35,33},{-19,42},{11,47},{11,37}};
+		//int[][] points = {{-35,19},{40,19},{27,-20},{35,-3},{44,20},{22,-21},{35,33},{-19,42},{11,47},{11,37}};
+		int[][] points = {{35,-23},{-12,-48},{-34,-40},{21,-25},{-35,-44},{24,1},{16,-9},{41,4},{-36,-49},{42,-49},{-37,-20},{-35,11},{-2,-36},{18,21},{18,8},{-24,14},{-23,-11},{-8,44},{-19,-3},{0,-10},{-21,-4},{23,18},{20,11},{-42,24},{6,-19}};
 		System.out.println(largestTriangleArea(points));
 		
 
