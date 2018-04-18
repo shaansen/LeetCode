@@ -7,7 +7,7 @@ public class ValidPalindromeII {
 	public static boolean isPalindrome(String s, int start, int end) {
 		System.out.println(s.substring(start,end));
 		char[] c = s.toCharArray();
-		for (int i = start; i < start+(end-start)/2; i++) {
+		for (int i = start; i <= start+(end-start)/2; i++) {
 			if(c[i]!=c[c.length-1-i]) {
 				return false;
 			}
